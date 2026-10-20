@@ -1,0 +1,202 @@
+{
+    "description": "Deliveries exactly as Tawked's webhook sender of API version 2026-09 (User-Agent Tawked-Webhooks/2) builds them: the envelope {event, data} (and \"test\": true on a test event) with sent_at, signed with tawked-signature only. No tawked-webhook-id, no Standard Webhooks headers, and no type, timestamp or mode in the body. Every SDK version must keep accepting them.",
+    "secret": "whk_v2_3f9a1c7e5b2d4a6c8e0f1a3b5c7d9e2f",
+    "deliveries": [
+        {
+            "label": "verification.verified",
+            "event": "verification.verified",
+            "test": false,
+            "now_ms": 1792746002000,
+            "body": "{\"event\":\"verification.verified\",\"data\":{\"id\":\"0199f1c2-7a41-7c3e-9d2b-5e8f1a2b3c4d\",\"status\":\"verified\",\"application_id\":\"0199a3b4-1c2d-7e3f-8a9b-0c1d2e3f4a5b\",\"reference\":\"signup-42\",\"channel\":\"sms\",\"to\":\"+966512345678\",\"mode\":\"live\",\"attempts\":1,\"expires_at\":\"2026-10-21T09:05:00.000Z\",\"verified_at\":\"2026-10-21T09:00:30.120Z\",\"created_at\":\"2026-10-21T09:00:00.000Z\"},\"sent_at\":\"1792746000000\"}",
+            "headers": {
+                "Content-Type": "application/json",
+                "tawked-timestamp": "1792746000000",
+                "tawked-signature": "83d88d0fd15b7ec9bed9576dd6d08366de7dc94ebe80853218ca1e7860c5b0da",
+                "tawked-event": "verification.verified",
+                "User-Agent": "Tawked-Webhooks/2"
+            }
+        },
+        {
+            "label": "verification.failed (a test event)",
+            "event": "verification.failed",
+            "test": true,
+            "now_ms": 1792746003000,
+            "body": "{\"event\":\"verification.failed\",\"data\":{\"id\":\"00000000-0000-0000-0000-000000000000\",\"status\":\"failed\",\"application_id\":\"0199a3b4-1c2d-7e3f-8a9b-0c1d2e3f4a5b\",\"reference\":\"test-event\",\"channel\":\"sms\",\"to\":\"+966500000000\",\"mode\":\"test\",\"attempts\":5,\"expires_at\":\"2026-10-21T09:05:00.000Z\",\"verified_at\":null,\"created_at\":\"2026-10-21T08:59:30.000Z\"},\"test\":true,\"sent_at\":\"1792746001000\"}",
+            "headers": {
+                "Content-Type": "application/json",
+                "tawked-timestamp": "1792746001000",
+                "tawked-signature": "8d42ad39a4b3da1bcf78144c0cb13d621cfe55e25245b695f6b8bad7765da50a",
+                "tawked-event": "verification.failed",
+                "User-Agent": "Tawked-Webhooks/2"
+            }
+        },
+        {
+            "label": "verification.expired",
+            "event": "verification.expired",
+            "test": false,
+            "now_ms": 1792746004000,
+            "body": "{\"event\":\"verification.expired\",\"data\":{\"id\":\"0199f1c2-7a41-7c3e-9d2b-5e8f1a2b3c4e\",\"status\":\"expired\",\"application_id\":\"0199a3b4-1c2d-7e3f-8a9b-0c1d2e3f4a5b\",\"reference\":null,\"channel\":\"sms\",\"to\":\"+966512345678\",\"mode\":\"live\",\"attempts\":0,\"expires_at\":\"2026-10-21T09:05:00.000Z\",\"verified_at\":null,\"created_at\":\"2026-10-21T09:00:00.000Z\"},\"sent_at\":\"1792746002000\"}",
+            "headers": {
+                "Content-Type": "application/json",
+                "tawked-timestamp": "1792746002000",
+                "tawked-signature": "dd139a973706e1ba8727229936119cfa88e000c9cd94cd1d05edd3fd8a6d6914",
+                "tawked-event": "verification.expired",
+                "User-Agent": "Tawked-Webhooks/2"
+            }
+        },
+        {
+            "label": "message.delivered",
+            "event": "message.delivered",
+            "test": false,
+            "now_ms": 1792746005000,
+            "body": "{\"event\":\"message.delivered\",\"data\":{\"id\":\"0199f1c2-8b52-7d4f-8e3c-6f9a2b3c4d5e\",\"status\":\"delivered\",\"application_id\":\"0199a3b4-1c2d-7e3f-8a9b-0c1d2e3f4a5b\",\"to\":\"+9665•• ••• 678\",\"template\":\"order_update\",\"lang\":\"ar\",\"reference\":\"order-1042\",\"price_halalas\":12,\"error\":null,\"occurred_at\":\"2026-10-21T09:00:10.000Z\",\"created_at\":\"2026-10-21T09:00:00.000Z\"},\"sent_at\":\"1792746003000\"}",
+            "headers": {
+                "Content-Type": "application/json",
+                "tawked-timestamp": "1792746003000",
+                "tawked-signature": "7db3a746322966b708d47ce6a2c15b242df1610a50d4795af61ecfc6ced98b13",
+                "tawked-event": "message.delivered",
+                "User-Agent": "Tawked-Webhooks/2"
+            }
+        },
+        {
+            "label": "message.failed",
+            "event": "message.failed",
+            "test": false,
+            "now_ms": 1792746006000,
+            "body": "{\"event\":\"message.failed\",\"data\":{\"id\":\"0199f1c2-8b52-7d4f-8e3c-6f9a2b3c4d5f\",\"status\":\"failed\",\"application_id\":\"0199a3b4-1c2d-7e3f-8a9b-0c1d2e3f4a5b\",\"to\":\"+9665•• ••• 678\",\"template\":\"order_update\",\"lang\":\"ar\",\"reference\":null,\"price_halalas\":0,\"error\":{\"code\":\"131026\",\"message\":\"Message undeliverable.\"},\"occurred_at\":\"2026-10-21T09:00:10.000Z\",\"created_at\":\"2026-10-21T09:00:00.000Z\"},\"sent_at\":\"1792746004000\"}",
+            "headers": {
+                "Content-Type": "application/json",
+                "tawked-timestamp": "1792746004000",
+                "tawked-signature": "56c806d10d0ecfb00678476e1b1fc4fa91405e023ee1aef24ae65e84ac7f8349",
+                "tawked-event": "message.failed",
+                "User-Agent": "Tawked-Webhooks/2"
+            }
+        },
+        {
+            "label": "email.delivered",
+            "event": "email.delivered",
+            "test": false,
+            "now_ms": 1792746007000,
+            "body": "{\"event\":\"email.delivered\",\"data\":{\"id\":\"0199f1c2-9c63-7e5a-9f4d-7a0b3c4d5e6f\",\"status\":\"delivered\",\"application_id\":\"0199a3b4-1c2d-7e3f-8a9b-0c1d2e3f4a5b\",\"from\":{\"name\":\"متجر النخبة\",\"address\":\"orders@mail.example.com\"},\"to\":\"s***@example.com\",\"subject\":\"طلبك #1042 في الطريق\",\"reference\":\"order-1042\",\"price_halalas\":2,\"error\":null,\"bounce\":null,\"occurred_at\":\"2026-10-21T09:00:05.000Z\",\"created_at\":\"2026-10-21T09:00:00.000Z\"},\"sent_at\":\"1792746005000\"}",
+            "headers": {
+                "Content-Type": "application/json",
+                "tawked-timestamp": "1792746005000",
+                "tawked-signature": "6c934a280bd7247d6a649202b197cbb17527a1472ba7a464bde60a5ce1b6632b",
+                "tawked-event": "email.delivered",
+                "User-Agent": "Tawked-Webhooks/2"
+            }
+        },
+        {
+            "label": "email.bounced",
+            "event": "email.bounced",
+            "test": false,
+            "now_ms": 1792746008000,
+            "body": "{\"event\":\"email.bounced\",\"data\":{\"id\":\"0199f1c2-9c63-7e5a-9f4d-7a0b3c4d5e70\",\"status\":\"bounced\",\"application_id\":\"0199a3b4-1c2d-7e3f-8a9b-0c1d2e3f4a5b\",\"from\":{\"name\":\"Acme\",\"address\":\"orders@mail.example.com\"},\"to\":\"n***@example.com\",\"subject\":\"Your receipt\",\"reference\":null,\"price_halalas\":2,\"error\":{\"code\":\"bounced\",\"message\":\"550 5.1.1 The email account that you tried to reach does not exist.\"},\"bounce\":{\"type\":\"Permanent\",\"subtype\":\"General\"},\"occurred_at\":\"2026-10-21T09:00:05.000Z\",\"created_at\":\"2026-10-21T09:00:00.000Z\"},\"sent_at\":\"1792746006000\"}",
+            "headers": {
+                "Content-Type": "application/json",
+                "tawked-timestamp": "1792746006000",
+                "tawked-signature": "0f72bd4ebed38c7d85dd842f2ae7dbc40528f2c27962c4d7b28a4c1d734ed4dd",
+                "tawked-event": "email.bounced",
+                "User-Agent": "Tawked-Webhooks/2"
+            }
+        },
+        {
+            "label": "email.complained",
+            "event": "email.complained",
+            "test": false,
+            "now_ms": 1792746009000,
+            "body": "{\"event\":\"email.complained\",\"data\":{\"id\":\"0199f1c2-9c63-7e5a-9f4d-7a0b3c4d5e71\",\"status\":\"complained\",\"application_id\":\"0199a3b4-1c2d-7e3f-8a9b-0c1d2e3f4a5b\",\"from\":{\"name\":\"Acme\",\"address\":\"orders@mail.example.com\"},\"to\":\"n***@example.com\",\"subject\":\"Your receipt\",\"reference\":null,\"price_halalas\":2,\"error\":{\"code\":\"complaint\",\"message\":\"The recipient marked the message as spam.\"},\"bounce\":null,\"occurred_at\":\"2026-10-21T09:10:00.000Z\",\"created_at\":\"2026-10-21T09:00:00.000Z\"},\"sent_at\":\"1792746007000\"}",
+            "headers": {
+                "Content-Type": "application/json",
+                "tawked-timestamp": "1792746007000",
+                "tawked-signature": "0a384576cbee1e01a80eb24587f03c20c899dface9669817595af4e6b95013fe",
+                "tawked-event": "email.complained",
+                "User-Agent": "Tawked-Webhooks/2"
+            }
+        },
+        {
+            "label": "email.failed (a test event)",
+            "event": "email.failed",
+            "test": true,
+            "now_ms": 1792746010000,
+            "body": "{\"event\":\"email.failed\",\"data\":{\"id\":\"00000000-0000-0000-0000-000000000000\",\"status\":\"failed\",\"application_id\":\"0199a3b4-1c2d-7e3f-8a9b-0c1d2e3f4a5b\",\"from\":{\"name\":\"Acme\",\"address\":\"orders@example.com\"},\"to\":\"c***@example.com\",\"subject\":\"Your order #1042 is on its way\",\"reference\":\"test-event\",\"price_halalas\":0,\"error\":{\"code\":\"rejected\",\"message\":\"The message was refused before delivery. Its fee was returned.\"},\"bounce\":null,\"occurred_at\":\"2026-10-21T09:00:30.000Z\",\"created_at\":\"2026-10-21T09:00:00.000Z\"},\"test\":true,\"sent_at\":\"1792746008000\"}",
+            "headers": {
+                "Content-Type": "application/json",
+                "tawked-timestamp": "1792746008000",
+                "tawked-signature": "df6e7ade6bcc5be1896a2d7ce179a47a85da62bfe234325a7252149a074f63ec",
+                "tawked-event": "email.failed",
+                "User-Agent": "Tawked-Webhooks/2"
+            }
+        },
+        {
+            "label": "service.approved",
+            "event": "service.approved",
+            "test": false,
+            "now_ms": 1792746011000,
+            "body": "{\"event\":\"service.approved\",\"data\":{\"service_id\":\"0199a3b4-1c2d-7e3f-8a9b-0c1d2e3f4a5b\",\"application_id\":\"0199a3b4-1c2d-7e3f-8a9b-0c1d2e3f4a5b\",\"external_id\":\"merchant-77\",\"status\":\"active\"},\"sent_at\":\"1792746009000\"}",
+            "headers": {
+                "Content-Type": "application/json",
+                "tawked-timestamp": "1792746009000",
+                "tawked-signature": "3620ebbca5c190482a350b6994fc870b4a903c6c67300c8bb7bd6a58b7d02886",
+                "tawked-event": "service.approved",
+                "User-Agent": "Tawked-Webhooks/2"
+            }
+        },
+        {
+            "label": "service.rejected",
+            "event": "service.rejected",
+            "test": false,
+            "now_ms": 1792746012000,
+            "body": "{\"event\":\"service.rejected\",\"data\":{\"service_id\":\"0199a3b4-1c2d-7e3f-8a9b-0c1d2e3f4a5b\",\"application_id\":\"0199a3b4-1c2d-7e3f-8a9b-0c1d2e3f4a5b\",\"external_id\":\"merchant-77\",\"status\":\"rejected\",\"reason\":\"The website does not load.\",\"reason_code\":\"website_unreachable\"},\"sent_at\":\"1792746010000\"}",
+            "headers": {
+                "Content-Type": "application/json",
+                "tawked-timestamp": "1792746010000",
+                "tawked-signature": "0e34a599a333337591fead6dd666828c19e629644141e2a4a16a77c9618e4a26",
+                "tawked-event": "service.rejected",
+                "User-Agent": "Tawked-Webhooks/2"
+            }
+        },
+        {
+            "label": "service.suspended",
+            "event": "service.suspended",
+            "test": false,
+            "now_ms": 1792746013000,
+            "body": "{\"event\":\"service.suspended\",\"data\":{\"service_id\":\"0199a3b4-1c2d-7e3f-8a9b-0c1d2e3f4a5b\",\"application_id\":\"0199a3b4-1c2d-7e3f-8a9b-0c1d2e3f4a5b\",\"external_id\":\"merchant-77\"},\"sent_at\":\"1792746011000\"}",
+            "headers": {
+                "Content-Type": "application/json",
+                "tawked-timestamp": "1792746011000",
+                "tawked-signature": "57c7f2388371547a29e64894dec44d56f22f36fd6df64490c7cadd8eecc313df",
+                "tawked-event": "service.suspended",
+                "User-Agent": "Tawked-Webhooks/2"
+            }
+        },
+        {
+            "label": "balance.low",
+            "event": "balance.low",
+            "test": false,
+            "now_ms": 1792746014000,
+            "body": "{\"event\":\"balance.low\",\"data\":{\"balance_halalas\":4900,\"threshold_halalas\":5000},\"sent_at\":\"1792746012000\"}",
+            "headers": {
+                "Content-Type": "application/json",
+                "tawked-timestamp": "1792746012000",
+                "tawked-signature": "b8f0a80bb4f7bcf5c1f03d3c8d562b7a7bc94dbc81c2f6015222f7c4daf199d5",
+                "tawked-event": "balance.low",
+                "User-Agent": "Tawked-Webhooks/2"
+            }
+        },
+        {
+            "label": "verification.verified (to a partner)",
+            "event": "verification.verified",
+            "test": false,
+            "now_ms": 1792746015000,
+            "body": "{\"event\":\"verification.verified\",\"data\":{\"id\":\"0199f1c2-7a41-7c3e-9d2b-5e8f1a2b3c4d\",\"status\":\"verified\",\"application_id\":\"0199a3b4-1c2d-7e3f-8a9b-0c1d2e3f4a5b\",\"reference\":\"signup-42\",\"channel\":\"sms\",\"to\":\"+966512345678\",\"mode\":\"live\",\"attempts\":1,\"expires_at\":\"2026-10-21T09:05:00.000Z\",\"verified_at\":\"2026-10-21T09:00:30.120Z\",\"created_at\":\"2026-10-21T09:00:00.000Z\",\"external_id\":\"merchant-77\"},\"sent_at\":\"1792746013000\"}",
+            "headers": {
+                "Content-Type": "application/json",
+                "tawked-timestamp": "1792746013000",
+                "tawked-signature": "66a96f3bdecff2ef09c5966618e466568315b890d3807603e0a094c0dde2c053",
+                "tawked-event": "verification.verified",
+                "User-Agent": "Tawked-Webhooks/2"
+            }
+        }
+    ]
+}

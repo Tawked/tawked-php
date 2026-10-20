@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+         cacheDirectory=".phpunit.cache"
+         failOnRisky="true"
+         failOnWarning="true"
+         beStrictAboutOutputDuringTests="true"
+>
+    <php>
+        <!-- Traces keep their arguments, so the tests prove a secret never shows in one. -->
+        <ini name="zend.exception_ignore_args" value="0"/>
+    </php>
+    <testsuites>
+        <testsuite name="unit">
+            <directory>tests/Unit</directory>
+        </testsuite>
+        <testsuite name="contract">
+            <directory>tests/Contract</directory>
+        </testsuite>
+        <testsuite name="generated">
+            <directory>tests/Generated</directory>
+        </testsuite>
+        <testsuite name="mock">
+            <directory>tests/Mock</directory>
+        </testsuite>
+    </testsuites>
+    <source>
+        <include>
+            <directory>src</directory>
+        </include>
+    </source>
+</phpunit>

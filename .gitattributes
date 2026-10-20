@@ -1,0 +1,9 @@
+/.github export-ignore
+/tests export-ignore
+/.gitattributes export-ignore
+/.gitignore export-ignore
+/phpunit.xml.dist export-ignore
+/phpstan.neon export-ignore
+/pint.json export-ignore
+/scripts export-ignore
+/src/.generated export-ignore

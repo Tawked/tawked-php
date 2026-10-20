@@ -1,0 +1,63 @@
+{
+    "description": "One delivery to an endpoint whose Standard Webhooks signing is on: both header sets. A verifier with scheme \"auto\" picks the scheme by the secrets it is given: only whsec_ secrets: Standard Webhooks only; only other secrets: tawked only; both kinds: Standard Webhooks only; never a fallback from one scheme to the other. Verify at the given now (seconds).",
+    "generated_by": "sdks/contract/generate.php with App\\Partners\\WebhookSigner and App\\Webhooks\\StandardSignature",
+    "now_seconds": 1792746004,
+    "body": "{\"event\":\"email.delivered\",\"data\":{\"id\":\"0199f1c2-7a41-7c3e-9d2b-5e8f1a2b3c4d\",\"to\":\"sara@example.com\"},\"type\":\"email.delivered\",\"timestamp\":\"2026-10-23T09:00:04.210Z\",\"sent_at\":\"1792746004380\"}",
+    "headers": {
+        "tawked-timestamp": "1792746004380",
+        "tawked-signature": "9192653afe74d8b47b52f7b150b35f362c066c2f604f8d653dd63b4e74c4b4c1",
+        "tawked-event": "email.delivered",
+        "tawked-webhook-id": "0199f220-5f69-7a10-9b2c-3d4e5f6a7b8c",
+        "webhook-id": "0199f220-5f69-7a10-9b2c-3d4e5f6a7b8c",
+        "webhook-timestamp": "1792746004",
+        "webhook-signature": "v1,XzVZtbzGPZobVLLWLH3zT/pp5EKmnGtlfEMDZgZ9qvU="
+    },
+    "secrets": {
+        "tawked": "whk_both_7a1c2f9e0b3d4c5a6e7f8091a2b3c4d5",
+        "standard": "whsec_sZc6MCL52+pDTHfnSJyoCRBMlvaioqV8JSnVrfLpc6c="
+    },
+    "cases": [
+        {
+            "label": "tawked secret only",
+            "secrets": [
+                "whk_both_7a1c2f9e0b3d4c5a6e7f8091a2b3c4d5"
+            ],
+            "expected": {
+                "valid": true,
+                "scheme": "tawked"
+            }
+        },
+        {
+            "label": "whsec_ secret only",
+            "secrets": [
+                "whsec_sZc6MCL52+pDTHfnSJyoCRBMlvaioqV8JSnVrfLpc6c="
+            ],
+            "expected": {
+                "valid": true,
+                "scheme": "standard_webhooks"
+            }
+        },
+        {
+            "label": "both secrets",
+            "secrets": [
+                "whk_both_7a1c2f9e0b3d4c5a6e7f8091a2b3c4d5",
+                "whsec_sZc6MCL52+pDTHfnSJyoCRBMlvaioqV8JSnVrfLpc6c="
+            ],
+            "expected": {
+                "valid": true,
+                "scheme": "standard_webhooks"
+            }
+        },
+        {
+            "label": "the tawked secret and a whsec_ secret that did not sign: Standard Webhooks only, no fallback",
+            "secrets": [
+                "whk_both_7a1c2f9e0b3d4c5a6e7f8091a2b3c4d5",
+                "whsec_r36TFq5o6oO7LRb/htUesphDNPmNq0jdmtwyjuGnKsI="
+            ],
+            "expected": {
+                "valid": false,
+                "scheme": "standard_webhooks"
+            }
+        }
+    ]
+}

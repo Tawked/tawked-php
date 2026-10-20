@@ -1,0 +1,106 @@
+{
+    "name": "tawked/tawked-php",
+    "description": "Official Tawked SDK for PHP: SMS OTP verification, WhatsApp Business API messages, transactional email and webhooks for businesses in Saudi Arabia.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "tawked",
+        "sdk",
+        "api",
+        "otp",
+        "sms",
+        "sms-otp",
+        "phone-verification",
+        "2fa",
+        "whatsapp",
+        "whatsapp-business-api",
+        "email",
+        "transactional-email",
+        "webhooks",
+        "psr-18",
+        "saudi-arabia",
+        "ksa",
+        "arabic"
+    ],
+    "homepage": "https://docs.tawked.com",
+    "authors": [
+        {
+            "name": "Tawked",
+            "email": "support@tawked.com",
+            "homepage": "https://tawked.com"
+        }
+    ],
+    "support": {
+        "email": "support@tawked.com",
+        "docs": "https://docs.tawked.com",
+        "issues": "https://github.com/tawked/tawked-php/issues",
+        "source": "https://github.com/tawked/tawked-php"
+    },
+    "require": {
+        "php": "^8.1",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "^7.5 || ^8.0",
+        "guzzlehttp/psr7": "^2.4 || ^3.0",
+        "psr/http-client": "^1.0",
+        "psr/http-message": "^1.1 || ^2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5 || ^11.0",
+        "phpstan/phpstan": "^2.0",
+        "laravel/pint": "^1.13"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tawked\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tawked\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "generate": "@php scripts/generate.php",
+        "generate:check": "@php scripts/generate.php --check",
+        "test": [
+            "Composer\\Config::disableProcessTimeout",
+            "phpunit"
+        ],
+        "test:unit": "phpunit --testsuite unit",
+        "test:contract": [
+            "Composer\\Config::disableProcessTimeout",
+            "phpunit --testsuite generated"
+        ],
+        "analyse": "phpstan analyse --memory-limit=1G --no-progress",
+        "format": "pint",
+        "lint": "pint --test",
+        "surface": [
+            "Composer\\Config::disableProcessTimeout",
+            "@php scripts/surface.php"
+        ],
+        "roles": "@php scripts/error-roles.php",
+        "smoke:local": "@php scripts/smoke-local.php"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "archive": {
+        "exclude": [
+            "/.gitattributes",
+            "/.github",
+            "/.gitignore",
+            "/.phpstan",
+            "/.phpunit.cache",
+            "/composer.lock",
+            "/phpstan.neon",
+            "/phpunit.xml.dist",
+            "/pint.json",
+            "/scripts",
+            "/src/.generated",
+            "/tests",
+            "/vendor"
+        ]
+    }
+}
